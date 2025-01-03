@@ -1,0 +1,477 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  background-color: white;
+}
+.backHead {
+  background-image: url("./assets/back.jpg");
+  height: 19.5cm;
+  background-size: cover;
+}
+.header {
+  height: 2.5cm;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  border: none;
+  background-color: floralwhite;
+  z-index: 999;
+}
+.header #location {
+  font-size: x-large;
+  margin-left: 20px;
+  margin-top: 10px;
+  color: rgba(6, 113, 95, 0.855);
+  font-weight: 400;
+  display: flex;
+}
+.header .logoDiv {
+  display: flex;
+  height: 1.5cm;
+  margin: 20px;
+}
+.header .logoDiv #logo {
+  height: 1.2cm;
+  width: 1.4cm;
+  border: solid black;
+  margin: 5px;
+  border-radius: 10px;
+}
+.header .logoDiv #logoName {
+  font-size: xx-large;
+  margin: 5px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: 900;
+  color: rgb(106, 105, 105);
+}
+.header .logoDiv #logoName:hover {
+  color: black;
+}
+.header .navDiv {
+  display: flex;
+  height: 1.5cm;
+  align-items: center;
+  width: 17cm;
+  justify-content: space-evenly;
+  font-size: x-large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  position: relative;
+  left: 140px;
+  margin-top: 12px;
+}
+.header .navDiv a {
+  text-decoration: none;
+  color: rgba(86, 196, 178, 0.855);
+}
+.header .navDiv a:hover {
+  color: rgba(37, 151, 132, 0.855);
+  font-weight: 400;
+  transform: translateY(-5px);
+  transition: 0.3s ease-in-out;
+  text-decoration: underline;
+}
+.header .loginDiv {
+  position: relative;
+  left: 9cm;
+  height: fit-content;
+  margin-top: 28px;
+}
+.header .loginDiv button {
+  font-size: x-large;
+  text-decoration: none;
+  color: rgba(37, 151, 132, 0.855);
+  border: none;
+  background-color: floralwhite;
+}
+.header .loginDiv button:hover {
+  color: rgba(86, 196, 178, 0.855);
+  font-weight: 400;
+  transform: translateY(-5px);
+  transition: 0.1s ease-in-out;
+  text-decoration: underline;
+}
+.backHead .onPic {
+  position: relative;
+  top: 8cm;
+  color: white;
+  text-align: center;
+  font-size: xx-large;
+}
+.backHead .onPic h1 {
+  border-bottom: 2px solid white;
+  border-top: 2px solid white;
+  width: fit-content;
+  position: relative;
+  left: 20%;
+}
+.backHead .formDiv {
+  position: relative;
+  top: 18cm;
+  background-image: linear-gradient(
+    20deg,
+    rgba(86, 196, 178, 0.855),
+    rgba(198, 251, 242, 0.855),
+    rgb(210, 158, 166)
+  );
+}
+.backHead .formDiv h1 {
+  border: 1px solid black;
+  width: fit-content;
+  font-size: 44px;
+  position: relative;
+  left: 40%;
+  top: -30px;
+  background-image: linear-gradient(
+    20deg,
+    rgba(86, 196, 178, 0.855),
+    rgba(198, 251, 242, 0.855),
+    rgb(210, 158, 166)
+  );
+}
+.backHead .formDiv form {
+  font-size: xx-large;
+  top: -20px;
+  position: relative;
+  left: 35%;
+  width: 20%;
+}
+.backHead .formDiv form p {
+  margin: 0px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: x-large;
+}
+.backHead .formDiv form select {
+  width: 13cm;
+  padding: 6px;
+  border-radius: 10px;
+}
+.backHead .formDiv form input {
+  width: 12.8cm;
+  padding: 6px;
+  border-radius: 10px;
+}
+.backHead .formDiv button {
+  position: relative;
+  padding: 10px;
+  right: -220%;
+  top: -50px;
+  border-radius: 20px;
+  background-image: linear-gradient(20deg, rgb(72, 238, 69), rgb(4, 172, 82));
+}
+.backHead .formDiv button:hover{
+  transform: translateY(3px);
+  transition: 0.2s ease-in-out;
+}
+.backHead .backuseDiv {
+  position: relative;
+  top: 17cm;
+  height: 8cm;
+  background-image: linear-gradient(
+    30deg,
+    rgb(237, 149, 162),
+    rgba(61, 176, 157, 0.855),
+    rgba(45, 119, 106, 0.855)
+  );
+  font-weight: 700;
+}
+.backHead .useDiv {
+  position: relative;
+  top: 17cm;
+  height: 7cm;
+  width: 19cm;
+  left: 25%;
+  background-image: linear-gradient(
+    90deg,
+    rgba(86, 196, 178, 0.855),
+    rgba(198, 251, 242, 0.855),
+    rgb(236, 178, 188)
+  );
+  padding: 40px;
+}
+.backHead .useDiv h1 {
+  font-size: 44px;
+  position: relative;
+  border: 1px solid black;
+  top: -26px;
+  left: 35%;
+  width: fit-content;
+}
+.backHead .useDiv p {
+  font-size: x-large;
+}
+.backHead #homeSec {
+  position: relative;
+  top: 14cm;
+}
+.backHead .signup {
+  border: 2px solid rgb(246, 241, 241);
+  border-style:groove;
+  border-radius: 20px;
+  position: relative;
+  top: -28cm;
+  text-align: left;
+  height: 12cm;
+  background-image: linear-gradient(
+    25deg,
+    rgb(179, 240, 221),
+    rgb(42, 103, 92),
+    rgb(7, 127, 121)
+  );
+  width: 15cm;
+  left: 40%;
+}
+.backHead .signup h1 {
+  border: 1px solid black;
+  position: relative;
+  left: 35%;
+  width: fit-content;
+  top: -20px;
+  background-image: linear-gradient(
+    25deg,
+    rgb(179, 240, 221),
+    rgb(85, 169, 154),
+    rgb(55, 244, 235)
+  );
+}
+.backHead .signup form {
+  position: relative;
+  left: 20%;
+  margin-top: 3px;
+}
+.backHead .signup form p {
+  margin: 5px;
+  font-size: x-large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.backHead .signup form input {
+  width: 6cm;
+  border-radius: 10px;
+  padding: 6px;
+}
+
+
+.backHead .signup form #capthaPrint {
+  width: fit-content;
+}
+.backHead .signup form button {
+  position: relative;
+  top: 1.5cm;
+  right: 30%;
+  padding: 10px;
+  background-image: linear-gradient(20deg, rgb(30, 202, 122), rgb(4, 172, 82));
+  font-size: larger;
+  font-weight: 700;
+  transform: scaleY(2px);
+  border-radius: 10px;
+}
+.backHead .signup form button:hover {
+  transform: translateY(5px);
+  transition: 0.3s ease-in-out;
+  padding: 7px;
+}
+.backHead .signed {
+  display: none;
+}
+.header .loginDiv #signOut{
+  border: solid red;
+}
+.foot{
+  position: relative;
+  top: 24cm;
+  height: 8cm;
+  background-image: linear-gradient(20deg,rgba(23, 22, 22, 0.936),rgba(32, 29, 29, 0.81),rgba(35, 35, 35, 0.926));
+
+}
+.foot .footLogo{
+  display: flex;
+  width: fit-content;
+  margin-top: 20px;
+  margin-left: 20px
+}
+.foot .footLogo img{
+  height:2cm;
+  border: 1px solid white;
+  background-color: white;
+  border-radius: 10px;
+}
+.foot .footLogo h1{
+  margin-top: 20px;
+  margin-left: 10px;
+  color: white;
+}
+.foot .footLink{
+  width: 15cm;
+  height: 1cm;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  left: 20%;
+}
+.foot .footLink a{
+  text-decoration: none;
+  margin-top: 10px;
+  color: white;
+  font-size:x-large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.foot .footLink a:hover{
+  color: beige;
+  text-decoration: underline;
+  transition: 0.3s ease-in-out;
+}
+.foot .footProject{
+  width: fit-content;
+  position: relative;
+  left: 80%;
+  display: flex;
+  flex-direction: column;
+  height: 3cm;
+  justify-content: space-evenly;
+  top: -60px;
+}
+.foot .footProject a{
+  text-decoration: none;
+  margin-top: 10px;
+  color: white;
+  font-size:x-large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.foot .footProject a:hover{
+  color: beige;
+  text-decoration: underline;
+  transition: 0.3s ease-in-out;
+}
+.foot .footCopy{
+  width: fit-content;
+  position: relative;
+  left: 40%;
+  top: -30px;
+}
+.foot .footCopy h1{
+  color: white;
+}
+.recommend {
+  position: relative;
+  top: 24cm; /* Adjust to position it appropriately below the form */
+  margin: 20px auto; /* Center the div */
+  width: 50%; /* Set an appropriate width */
+  padding: 20px; /* Add spacing inside */
+  text-align: center; /* Center-align text */
+  font-size: x-large; /* Match the font size to existing styles */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold; /* Make text bold for emphasis */
+  color: rgb(45, 45, 45); /* Dark color for text */
+  border: 2px solid rgba(37, 151, 132, 0.855); /* Add a border matching theme */
+  border-radius: 10px; /* Rounded corners */
+  background-image: linear-gradient(
+    20deg,
+    rgba(198, 251, 242, 0.855),
+    rgba(86, 196, 178, 0.855),
+    rgb(210, 158, 166)
+  ); /* Gradient consistent with the theme */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a soft shadow */
+}
+.norecommend{
+  display:none
+}
+.recommend #tryAgain{
+  padding: 3px;
+  background-image: linear-gradient(20deg, rgb(30, 202, 122), rgb(4, 172, 82));
+  font-size: large;
+  font-weight: 700;
+  transform: scaleY(2px);
+  border-radius: 10px;
+}
+#footid{
+  position: relative;
+  top: 25cm;
+}
+/* Base Styling for the FAQ Section */
+.faqFull {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for FAQ question */
+.faqFull h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 15px 0;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #025505;
+  color: white;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for FAQ question */
+.faqFull h3:hover {
+  background-color: #a8f4ad;
+}
+
+/* Styling for the answer */
+.faqFull p {
+  font-size: 1rem;
+  color: #333;
+  padding: 0 20px 20px;
+  line-height: 1.6;
+  background-color: #e9ecef;
+  border-radius: 4px;
+}
+
+/* Styling for Custom Query Section */
+.customQuery {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.customQuery h3 {
+  font-size: 1.5rem;
+  color: #ece9e9;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.customQuery form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.customQuery input {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  flex-grow: 1;
+  font-size: 1rem;
+}
+
+.customQuery button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.customQuery button:hover {
+  background-color: #218838;
+}
+
+/* Styling for About Section */
+.customQuery + div {
+  margin-top: 30px;
+}
