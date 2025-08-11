@@ -1,31 +1,28 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import Field from "./assets/field.png";
+import './About.css';
 
 function About() {
   return (
-    <>
-      <footer>
-        <div className="foot">
-          <div className="footLogo">
-            <img src={Field} alt="logo" id="logo"></img>
-            <h1 id="logoName">AgroFertile</h1>
-          </div>
-          <div className="footLink">
-            <a href="#homeSec">Home</a>
-            <Link to="/faq">Faq</Link>
-            <a href="#">Contact</a>
-          </div>
-          <div className="footProject">
-            <a href="#">Project Info</a>
-            <a href="#">Linked In</a>
-          </div>
-          <div className="footCopy">
-            <h1>&copy;. All rights reserved</h1>
+    <footer className="premium-footer">
+      <div className="footer-container">
+        <div className="footer-bottom">
+          <p className="copyright">&copy; {new Date().getFullYear()} AgroFertile. All rights reserved.</p>
+          <div className="social-icons">
+            <a href="#" className="social-icon" aria-label="Facebook">
+              <i className="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" className="social-icon" aria-label="Twitter">
+              <i className="fab fa-twitter"></i>
+            </a>
+            <a href="#" className="social-icon" aria-label="Instagram">
+              <i className="fab fa-instagram"></i>
+            </a>
           </div>
         </div>
-      </footer>
-    </>
+      </div>
+    </footer>
   );
 }
 

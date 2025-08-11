@@ -1,477 +1,642 @@
-* {
-  margin: 0px;
-  padding: 0px;
+/* Premium Typography - Import must be first */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Modern CSS Reset with Smooth Scrolling (2024) */
+html {
+  scroll-behavior: smooth;
+  font-size: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
+  scroll-padding-top: 3.5rem;
+  color-scheme: light dark;
 }
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  min-width: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Premium Color Palette - Modernized */
+:root {
+  --emerald: oklch(50% 0.15 180);
+  --emerald-light: oklch(55% 0.15 180);
+  --teal: oklch(60% 0.15 190);
+  --gold: oklch(80% 0.2 90);
+  --coral: oklch(70% 0.2 40);
+  --sienna: oklch(60% 0.2 35);
+  --ivory: oklch(98% 0.01 100);
+  --snow: oklch(100% 0 0);
+  --charcoal: oklch(20% 0.01 100);
+  --slate: oklch(40% 0.01 100);
+  
+  /* Fallbacks */
+  @supports not (color: oklch(0% 0 0)) {
+    --emerald: #0a5c5c;
+    --emerald-light: #0d7a7a;
+    --teal: #2a9d8f;
+    --gold: #e9c46a;
+    --coral: #f4a261;
+    --sienna: #e76f51;
+    --ivory: #f8f9fa;
+    --snow: #ffffff;
+    --charcoal: #333333;
+    --slate: #666666;
+  }
+
+  --shadow: 0 4px 30px oklch(0% 0 0 / 0.1);
+  --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --border-radius: 12px;
+}
+
 body {
-  background-color: white;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  line-height: 1.7;
+  color: var(--charcoal);
+  background-color: var(--ivory);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  text-wrap: pretty;
 }
-.backHead {
-  background-image: url("./assets/back.jpg");
-  height: 19.5cm;
-  background-size: cover;
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+  color: var(--emerald);
+  text-wrap: balance;
 }
+
+/* Ultra Premium Header - Modernized */
 .header {
-  height: 2.5cm;
-  display: flex;
+  height: 3.5rem;
   position: fixed;
   width: 100%;
-  border: none;
-  background-color: floralwhite;
-  z-index: 999;
-}
-.header #location {
-  font-size: x-large;
-  margin-left: 20px;
-  margin-top: 10px;
-  color: rgba(6, 113, 95, 0.855);
-  font-weight: 400;
+  background-color: oklch(from var(--snow) 100% 0 0 / 0.95);
+  z-index: 1000;
   display: flex;
-}
-.header .logoDiv {
-  display: flex;
-  height: 1.5cm;
-  margin: 20px;
-}
-.header .logoDiv #logo {
-  height: 1.2cm;
-  width: 1.4cm;
-  border: solid black;
-  margin: 5px;
-  border-radius: 10px;
-}
-.header .logoDiv #logoName {
-  font-size: xx-large;
-  margin: 5px;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-weight: 900;
-  color: rgb(106, 105, 105);
-}
-.header .logoDiv #logoName:hover {
-  color: black;
-}
-.header .navDiv {
-  display: flex;
-  height: 1.5cm;
   align-items: center;
-  width: 17cm;
-  justify-content: space-evenly;
-  font-size: x-large;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  position: relative;
-  left: 140px;
-  margin-top: 12px;
+  justify-content: space-between;
+  padding: 0 5%;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid oklch(from var(--snow) 100% 0 0 / 0.18);
+  transition: var(--transition);
 }
-.header .navDiv a {
+
+.header.scrolled {
+  height: 3rem;
+  background-color: oklch(from var(--snow) 100% 0 0 / 0.98);
+}
+
+.header #location {
+  font-size: 1.1rem;
+  color: var(--emerald-light);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header #location::before {
+  content: "📍";
+}
+
+.logoDiv {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+#logo {
+  height: 2.2rem;
+  width: 2.2rem;
+  border: 2px solid var(--emerald);
+  border-radius: 50%;
+  padding: 0.25rem;
+  transition: var(--transition);
+  aspect-ratio: 1;
+}
+
+#logoName {
+  font-size: clamp(1.5rem, 1.3rem + 0.8vw, 1.75rem);
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: var(--emerald);
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+}
+
+#logoName:hover {
+  color: var(--emerald-light);
+  text-shadow: 0 0 10px oklch(from var(--emerald-light) 55% 0.15 180 / 0.2);
+}
+
+.navDiv {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.navDiv a {
   text-decoration: none;
-  color: rgba(86, 196, 178, 0.855);
-}
-.header .navDiv a:hover {
-  color: rgba(37, 151, 132, 0.855);
-  font-weight: 400;
-  transform: translateY(-5px);
-  transition: 0.3s ease-in-out;
-  text-decoration: underline;
-}
-.header .loginDiv {
+  color: var(--slate);
+  font-size: 1.1rem;
+  font-weight: 500;
   position: relative;
-  left: 9cm;
-  height: fit-content;
-  margin-top: 28px;
+  padding: 0.5rem 0;
+  transition: var(--transition);
 }
-.header .loginDiv button {
-  font-size: x-large;
-  text-decoration: none;
-  color: rgba(37, 151, 132, 0.855);
+
+.navDiv a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--emerald);
+  transition: var(--transition);
+}
+
+.navDiv a:hover {
+  color: var(--emerald);
+}
+
+.navDiv a:hover::after {
+  width: 100%;
+}
+
+.loginDiv button {
+  background: linear-gradient(135deg, var(--emerald), var(--emerald-light));
+  color: white;
   border: none;
-  background-color: floralwhite;
+  border-radius: 50px;
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px oklch(from var(--emerald) 50% 0.15 180 / 0.3);
 }
-.header .loginDiv button:hover {
-  color: rgba(86, 196, 178, 0.855);
-  font-weight: 400;
-  transform: translateY(-5px);
-  transition: 0.1s ease-in-out;
-  text-decoration: underline;
+
+.loginDiv button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px oklch(from var(--emerald) 50% 0.15 180 / 0.4);
 }
-.backHead .onPic {
+
+.loginDiv #signOut {
+  background: linear-gradient(135deg, var(--sienna), var(--coral));
+  box-shadow: 0 4px 15px oklch(from var(--sienna) 60% 0.2 35 / 0.3);
+}
+
+.loginDiv #signOut:hover {
+  box-shadow: 0 6px 20px oklch(from var(--sienna) 60% 0.2 35 / 0.4);
+}
+
+/* Luxury Hero Section - Modernized */
+.backHead {
+  background: linear-gradient(oklch(from var(--charcoal) 20% 0.01 100 / 0.7), 
+              oklch(from var(--charcoal) 20% 0.01 100 / 0.7)), 
+              url("./assets/back.jpg") no-repeat center/cover;
+  height: 100svh;
+  min-height: 800px;
+  display: flex;
+  align-items: center;
   position: relative;
-  top: 8cm;
-  color: white;
+  overflow: hidden;
+}
+
+.onPic {
+  width: 100%;
   text-align: center;
-  font-size: xx-large;
-}
-.backHead .onPic h1 {
-  border-bottom: 2px solid white;
-  border-top: 2px solid white;
-  width: fit-content;
-  position: relative;
-  left: 20%;
-}
-.backHead .formDiv {
-  position: relative;
-  top: 18cm;
-  background-image: linear-gradient(
-    20deg,
-    rgba(86, 196, 178, 0.855),
-    rgba(198, 251, 242, 0.855),
-    rgb(210, 158, 166)
-  );
-}
-.backHead .formDiv h1 {
-  border: 1px solid black;
-  width: fit-content;
-  font-size: 44px;
-  position: relative;
-  left: 40%;
-  top: -30px;
-  background-image: linear-gradient(
-    20deg,
-    rgba(86, 196, 178, 0.855),
-    rgba(198, 251, 242, 0.855),
-    rgb(210, 158, 166)
-  );
-}
-.backHead .formDiv form {
-  font-size: xx-large;
-  top: -20px;
-  position: relative;
-  left: 35%;
-  width: 20%;
-}
-.backHead .formDiv form p {
-  margin: 0px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: x-large;
-}
-.backHead .formDiv form select {
-  width: 13cm;
-  padding: 6px;
-  border-radius: 10px;
-}
-.backHead .formDiv form input {
-  width: 12.8cm;
-  padding: 6px;
-  border-radius: 10px;
-}
-.backHead .formDiv button {
-  position: relative;
-  padding: 10px;
-  right: -220%;
-  top: -50px;
-  border-radius: 20px;
-  background-image: linear-gradient(20deg, rgb(72, 238, 69), rgb(4, 172, 82));
-}
-.backHead .formDiv button:hover{
-  transform: translateY(3px);
-  transition: 0.2s ease-in-out;
-}
-.backHead .backuseDiv {
-  position: relative;
-  top: 17cm;
-  height: 8cm;
-  background-image: linear-gradient(
-    30deg,
-    rgb(237, 149, 162),
-    rgba(61, 176, 157, 0.855),
-    rgba(45, 119, 106, 0.855)
-  );
-  font-weight: 700;
-}
-.backHead .useDiv {
-  position: relative;
-  top: 17cm;
-  height: 7cm;
-  width: 19cm;
-  left: 25%;
-  background-image: linear-gradient(
-    90deg,
-    rgba(86, 196, 178, 0.855),
-    rgba(198, 251, 242, 0.855),
-    rgb(236, 178, 188)
-  );
-  padding: 40px;
-}
-.backHead .useDiv h1 {
-  font-size: 44px;
-  position: relative;
-  border: 1px solid black;
-  top: -26px;
-  left: 35%;
-  width: fit-content;
-}
-.backHead .useDiv p {
-  font-size: x-large;
-}
-.backHead #homeSec {
-  position: relative;
-  top: 14cm;
-}
-.backHead .signup {
-  border: 2px solid rgb(246, 241, 241);
-  border-style:groove;
-  border-radius: 20px;
-  position: relative;
-  top: -28cm;
-  text-align: left;
-  height: 12cm;
-  background-image: linear-gradient(
-    25deg,
-    rgb(179, 240, 221),
-    rgb(42, 103, 92),
-    rgb(7, 127, 121)
-  );
-  width: 15cm;
-  left: 40%;
-}
-.backHead .signup h1 {
-  border: 1px solid black;
-  position: relative;
-  left: 35%;
-  width: fit-content;
-  top: -20px;
-  background-image: linear-gradient(
-    25deg,
-    rgb(179, 240, 221),
-    rgb(85, 169, 154),
-    rgb(55, 244, 235)
-  );
-}
-.backHead .signup form {
-  position: relative;
-  left: 20%;
-  margin-top: 3px;
-}
-.backHead .signup form p {
-  margin: 5px;
-  font-size: x-large;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-.backHead .signup form input {
-  width: 6cm;
-  border-radius: 10px;
-  padding: 6px;
-}
-
-
-.backHead .signup form #capthaPrint {
-  width: fit-content;
-}
-.backHead .signup form button {
-  position: relative;
-  top: 1.5cm;
-  right: 30%;
-  padding: 10px;
-  background-image: linear-gradient(20deg, rgb(30, 202, 122), rgb(4, 172, 82));
-  font-size: larger;
-  font-weight: 700;
-  transform: scaleY(2px);
-  border-radius: 10px;
-}
-.backHead .signup form button:hover {
-  transform: translateY(5px);
-  transition: 0.3s ease-in-out;
-  padding: 7px;
-}
-.backHead .signed {
-  display: none;
-}
-.header .loginDiv #signOut{
-  border: solid red;
-}
-.foot{
-  position: relative;
-  top: 24cm;
-  height: 8cm;
-  background-image: linear-gradient(20deg,rgba(23, 22, 22, 0.936),rgba(32, 29, 29, 0.81),rgba(35, 35, 35, 0.926));
-
-}
-.foot .footLogo{
-  display: flex;
-  width: fit-content;
-  margin-top: 20px;
-  margin-left: 20px
-}
-.foot .footLogo img{
-  height:2cm;
-  border: 1px solid white;
-  background-color: white;
-  border-radius: 10px;
-}
-.foot .footLogo h1{
-  margin-top: 20px;
-  margin-left: 10px;
   color: white;
+  padding: 0 10%;
+  z-index: 2;
 }
-.foot .footLink{
-  width: 15cm;
-  height: 1cm;
-  display: flex;
-  justify-content: space-evenly;
-  position: relative;
-  left: 20%;
-}
-.foot .footLink a{
-  text-decoration: none;
-  margin-top: 10px;
-  color: white;
-  font-size:x-large;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-.foot .footLink a:hover{
-  color: beige;
-  text-decoration: underline;
-  transition: 0.3s ease-in-out;
-}
-.foot .footProject{
+
+.onPic h1 {
+  font-size: clamp(2.5rem, 1.5rem + 5vw, 4.5rem);
+  margin: 0 auto;
+  padding: 1.5rem 3rem;
+  border-top: 3px solid oklch(from var(--snow) 100% 0 0 / 0.3);
+  border-bottom: 3px solid oklch(from var(--snow) 100% 0 0 / 0.3);
   width: fit-content;
+  text-shadow: 0 2px 10px oklch(0% 0 0 / 0.3);
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Elite Form Styling - Modernized */
+.formDiv, .signup {
+  background: var(--snow);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 3rem;
+  margin: 5rem auto;
+  max-width: min(900px, 90%);
   position: relative;
-  left: 80%;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.formDiv::before, .signup::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, var(--emerald), var(--teal), var(--gold));
+}
+
+.formDiv:hover, .signup:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px oklch(0% 0 0 / 0.15);
+}
+
+.formDiv h1, .signup h1 {
+  font-size: clamp(1.8rem, 1.5rem + 1.5vw, 2.5rem);
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--emerald);
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.formDiv h1::after, .signup h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--emerald), var(--gold));
+}
+
+form {
   display: flex;
   flex-direction: column;
-  height: 3cm;
-  justify-content: space-evenly;
-  top: -60px;
-}
-.foot .footProject a{
-  text-decoration: none;
-  margin-top: 10px;
-  color: white;
-  font-size:x-large;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-.foot .footProject a:hover{
-  color: beige;
-  text-decoration: underline;
-  transition: 0.3s ease-in-out;
-}
-.foot .footCopy{
-  width: fit-content;
-  position: relative;
-  left: 40%;
-  top: -30px;
-}
-.foot .footCopy h1{
-  color: white;
-}
-.recommend {
-  position: relative;
-  top: 24cm; /* Adjust to position it appropriately below the form */
-  margin: 20px auto; /* Center the div */
-  width: 50%; /* Set an appropriate width */
-  padding: 20px; /* Add spacing inside */
-  text-align: center; /* Center-align text */
-  font-size: x-large; /* Match the font size to existing styles */
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: bold; /* Make text bold for emphasis */
-  color: rgb(45, 45, 45); /* Dark color for text */
-  border: 2px solid rgba(37, 151, 132, 0.855); /* Add a border matching theme */
-  border-radius: 10px; /* Rounded corners */
-  background-image: linear-gradient(
-    20deg,
-    rgba(198, 251, 242, 0.855),
-    rgba(86, 196, 178, 0.855),
-    rgb(210, 158, 166)
-  ); /* Gradient consistent with the theme */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a soft shadow */
-}
-.norecommend{
-  display:none
-}
-.recommend #tryAgain{
-  padding: 3px;
-  background-image: linear-gradient(20deg, rgb(30, 202, 122), rgb(4, 172, 82));
-  font-size: large;
-  font-weight: 700;
-  transform: scaleY(2px);
-  border-radius: 10px;
-}
-#footid{
-  position: relative;
-  top: 25cm;
-}
-/* Base Styling for the FAQ Section */
-.faqFull {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  gap: 1.5rem;
 }
 
-/* Styling for FAQ question */
-.faqFull h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 15px 0;
-  cursor: pointer;
-  padding: 10px;
-  background-color: #025505;
-  color: white;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+form p {
+  font-size: 1.1rem;
+  color: var(--slate);
+  margin-bottom: 0.5rem;
 }
 
-/* Hover effect for FAQ question */
-.faqFull h3:hover {
-  background-color: #a8f4ad;
-}
-
-/* Styling for the answer */
-.faqFull p {
-  font-size: 1rem;
-  color: #333;
-  padding: 0 20px 20px;
-  line-height: 1.6;
-  background-color: #e9ecef;
-  border-radius: 4px;
-}
-
-/* Styling for Custom Query Section */
-.customQuery {
-  margin-top: 40px;
-  padding: 20px;
-  background-color: #fff;
+form input, form select {
+  width: 100%;
+  padding: 1rem;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: var(--transition);
+  background-color: oklch(from var(--snow) 100% 0 0 / 0.8);
 }
 
-.customQuery h3 {
-  font-size: 1.5rem;
-  color: #ece9e9;
+form input:focus, form select:focus {
+  border-color: var(--emerald);
+  outline: 2px solid var(--emerald);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px oklch(from var(--emerald) 50% 0.15 180 / 0.1);
+  background-color: var(--snow);
+}
+
+button[type="submit"] {
+  background: linear-gradient(135deg, var(--emerald), var(--teal));
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 15px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px oklch(from var(--emerald) 50% 0.15 180 / 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 1rem;
 }
 
-.customQuery form {
+button[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px oklch(from var(--emerald) 50% 0.15 180 / 0.4);
+  background: linear-gradient(135deg, var(--teal), var(--emerald));
+}
+
+/* Sophisticated Content Sections - Modernized */
+.useDiv, .backuseDiv {
+  background: var(--snow);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 3rem;
+  margin: 3rem auto;
+  max-width: min(900px, 90%);
+  position: relative;
+}
+
+.useDiv h1 {
+  font-size: clamp(1.8rem, 1.5rem + 1.5vw, 2.5rem);
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--emerald);
+}
+
+.useDiv p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--slate);
+  margin-bottom: 1.5rem;
+}
+
+/* Exclusive Footer - Modernized */
+.foot {
+  background: linear-gradient(135deg, var(--charcoal), #1a1a1a);
+  color: white;
+  padding: 4rem 5% 2rem;
+  position: relative;
+}
+
+.foot::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, var(--emerald), var(--teal), var(--gold));
+}
+
+.footLogo {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.footLogo img {
+  height: 3rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 0.25rem;
+  aspect-ratio: 1;
+}
+
+.footLogo h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  color: white;
+}
+
+.footLink, .footProject {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footLink a, .footProject a {
+  color: oklch(from white 100% 0 0 / 0.8);
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: var(--transition);
+  position: relative;
+}
+
+.footLink a::after, .footProject a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--gold);
+  transition: var(--transition);
+}
+
+.footLink a:hover, .footProject a:hover {
+  color: white;
+}
+
+.footLink a:hover::after, .footProject a:hover::after {
+  width: 100%;
+}
+
+.footCopy {
+  text-align: center;
+  margin-top: 3rem;
+  color: oklch(from white 100% 0 0 / 0.6);
+  font-size: 0.9rem;
+}
+
+/* Premium FAQ Section - Modernized */
+.faqFull {
+  background: var(--snow);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 3rem;
+  margin: 3rem auto;
+  max-width: min(900px, 90%);
+}
+
+.faqFull h3 {
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, var(--emerald), var(--teal));
+  color: white;
+  padding: 1.25rem 2rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-.customQuery input {
-  padding: 10px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  flex-grow: 1;
-  font-size: 1rem;
+.faqFull h3::after {
+  content: '+';
+  font-size: 1.5rem;
 }
 
-.customQuery button {
-  padding: 10px 20px;
-  background-color: #28a745;
+.faqFull h3.active::after {
+  content: '-';
+}
+
+.faqFull h3:hover {
+  background: linear-gradient(135deg, var(--teal), var(--emerald));
+  transform: translateX(5px);
+}
+
+.faqFull p {
+  font-size: 1rem;
+  color: var(--slate);
+  line-height: 1.8;
+  padding: 1.5rem;
+  background-color: oklch(from var(--emerald) 50% 0.15 180 / 0.05);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  display: none;
+}
+
+.faqFull p.show {
+  display: block;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* High-End Recommendation Section - Modernized */
+.recommend {
+  background: var(--snow);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 3rem;
+  margin: 3rem auto;
+  max-width: min(800px, 90%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.recommend::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, var(--emerald), var(--teal), var(--gold));
+}
+
+.recommend h2 {
+  font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
+  color: var(--emerald);
+  margin-bottom: 1.5rem;
+}
+
+.recommend p {
+  font-size: 1.1rem;
+  color: var(--slate);
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+#tryAgain {
+  background: linear-gradient(135deg, var(--emerald), var(--teal));
   color: white;
-  font-size: 1rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 50px;
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px oklch(from var(--emerald) 50% 0.15 180 / 0.3);
 }
 
-.customQuery button:hover {
-  background-color: #218838;
+#tryAgain:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px oklch(from var(--emerald) 50% 0.15 180 / 0.4);
+  background: linear-gradient(135deg, var(--teal), var(--emerald));
 }
 
-/* Styling for About Section */
-.customQuery + div {
-  margin-top: 30px;
+/* Responsive Design for All Devices - Modernized */
+@media (max-width: 1200px) {
+  .header {
+    padding: 0 3%;
+  }
+}
+
+@media (max-width: 992px) {
+  .navDiv {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+  }
+  
+  .logoDiv {
+    margin-bottom: 1rem;
+  }
+  
+  .navDiv {
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 0;
+    width: 100%;
+  }
+  
+  .loginDiv {
+    margin: 1rem 0;
+  }
+  
+  .formDiv, .signup, .useDiv {
+    padding: 2rem;
+  }
+  
+  .footLink, .footProject {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .formDiv h1, .signup h1, .useDiv h1 {
+    font-size: 1.8rem;
+  }
+  
+  form input, form select {
+    padding: 0.75rem;
+  }
+  
+  button[type="submit"] {
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* Modern Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --emerald: oklch(45% 0.15 180);
+    --emerald-light: oklch(50% 0.15 180);
+    --teal: oklch(55% 0.15 190);
+    --ivory: oklch(15% 0.01 100);
+    --snow: oklch(10% 0 0);
+    --charcoal: oklch(90% 0.01 100);
+    --slate: oklch(70% 0.01 100);
+  }
+
+  body {
+    color: oklch(90% 0.01 100);
+    background-color: oklch(10% 0 0);
+  }
 }

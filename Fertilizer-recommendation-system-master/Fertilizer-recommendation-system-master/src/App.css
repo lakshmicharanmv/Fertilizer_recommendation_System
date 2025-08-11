@@ -1,0 +1,206 @@
+/* Premium Global Styles */
+:root {
+    --primary: #0a5c5c;
+    --primary-dark: #083d3d;
+    --accent: #e9c46a;
+    --accent-light: #f4a261;
+    --text-light: #f8f9fa;
+    --text-dark: #333333;
+    --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  
+  /* Base Styles */
+  .app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f8f9fa;
+    color: var(--text-dark);
+  }
+  
+  /* Premium Navigation */
+  .app-header-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+  }
+  
+  .premium-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: #2c2c2c; /* Dark grey background */
+    border-bottom: 1px solid #444;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .premium-nav.scrolled {
+    background: var(--teal); /* Changed header color */
+    backdrop-filter: blur(20px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    padding: 1rem 5%;
+  }
+  
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .brand-logo-img {
+    width: 45px;
+    height: 45px;
+    border: 3px solid var(--accent);
+    border-radius: 50%;
+    padding: 3px;
+    box-shadow: 0 4px 15px rgba(233, 196, 106, 0.3);
+    transition: var(--transition);
+  }
+  
+  .brand-logo-img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(233, 196, 106, 0.5);
+  }
+  
+  .location-info {
+    margin-left: 1rem;
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .nav-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+  
+  .nav-username {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+    margin-right: 1rem;
+    align-self: center;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent);
+    transition: var(--transition);
+  }
+  
+  .nav-link:hover {
+    color: #f4a261; /* Orange accent on hover */
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .nav-links a.active {
+    color: #f4a261; /* Orange accent for active link */
+    border-bottom: 2px solid #f4a261;
+  }
+
+  /* Auth Buttons in Nav */
+  .auth-link-btn {
+    padding: 0.5rem 1.5rem;
+    border: 2px solid var(--accent);
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+  }
+
+  .auth-link-btn:hover {
+    background-color: var(--accent);
+    color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  .auth-link-btn.signup {
+    background-color: var(--accent);
+    color: var(--primary-dark);
+  }
+
+  .auth-link-btn.signup:hover {
+    background-color: #e9c46a; /* Lighter golden-yellow */
+    box-shadow: 0 2px 12px rgba(244, 162, 97, 0.4);
+  }
+
+  .nav-username {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+    margin-right: 1rem;
+    align-self: center;
+  }
+
+  .auth-link-btn.logout {
+    background-color: #dc3545; /* A standard red for logout/danger */
+    color: white;
+  }
+
+  .auth-link-btn.logout:hover {
+    background-color: #c82333; /* A darker red on hover */
+    box-shadow: 0 2px 12px rgba(220, 53, 69, 0.4);
+  }
+  
+  /* Content Area */
+  .content-wrapper {
+    flex: 1;
+    /* padding-top: 6rem; */ /* Removed to fix gap */
+    padding-bottom: 4rem;
+  }
+  
+  /* Page Transitions */
+  .route-transition {
+    position: relative;
+  }
+  
+  .route-transition-enter {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .route-transition-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: var(--transition);
+  }
+  
+  .route-transition-exit {
+    opacity: 1;
+  }
+  
+  .route-transition-exit-active {
+    opacity: 0;
+    transition: var(--transition);
+  }

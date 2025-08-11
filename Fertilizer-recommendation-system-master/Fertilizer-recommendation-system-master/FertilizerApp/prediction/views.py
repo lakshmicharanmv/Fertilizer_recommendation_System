@@ -4,15 +4,18 @@ import random
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import joblib
+import pandas as pd
 
 # Paths for model and encoders
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 model_path = os.path.join(BASE_DIR, 'prediction', 'Management', 'Commands', 'fertilizer_model.pkl')
 encoders_path = os.path.join(BASE_DIR, 'prediction', 'Management', 'Commands', 'label_encoders.pkl')
-
+scaler_path = os.path.join(BASE_DIR, 'prediction', 'Management', 'Commands', 'scaler.pkl')
 
 model = joblib.load(model_path)
 label_encoders = joblib.load(encoders_path)
+scaler = joblib.load(scaler_path)
+
 APPLICATION_TECHNIQUES = [
     "Apply the fertilizer uniformly across the field to ensure even crop growth.",
     "Mix the fertilizer well with the soil to prevent nutrient loss.",
@@ -68,14 +71,31 @@ def predict_fertilizer(request):
             soil_type_encoded = label_encoders['Soil Type'].transform([soil_type])[0]
             crop_type_encoded = label_encoders['Crop Type'].transform([crop_type])[0]
 
-            temp_humidity = temperature * humidity
-            feature_vector = [[temperature, humidity, 0, soil_type_encoded, crop_type_encoded, temp_humidity, 0]]
+            # Placeholder for Moisture, using a common or average value since it's not collected.
+            # This should be replaced with actual data if available.
+            moisture_placeholder = 60  # A sensible default
+
+            # Scale numerical features
+            numerical_features = pd.DataFrame([[temperature, humidity, moisture_placeholder]], columns=['Temparature', 'Humidity ', 'Moisture'])
+            scaled_features = scaler.transform(numerical_features)
+
+            scaled_temperature = scaled_features[0, 0]
+            scaled_humidity = scaled_features[0, 1]
+            scaled_moisture = scaled_features[0, 2]
+
+            # Create interaction features with scaled data
+            temp_humidity = scaled_temperature * scaled_humidity
+            moisture_soil_type = scaled_moisture * soil_type_encoded
+
+            # Create the final feature vector for prediction
+            feature_names = ['Temparature', 'Humidity ', 'Moisture', 'Soil Type', 'Crop Type', 'Temp_Humidity', 'Moisture_SoilType']
+            feature_vector = pd.DataFrame([[scaled_temperature, scaled_humidity, scaled_moisture, soil_type_encoded, crop_type_encoded, temp_humidity, moisture_soil_type]], columns=feature_names)
 
             fertilizer_encoded = model.predict(feature_vector)[0]
             fertilizer_name = label_encoders['Fertilizer Name'].inverse_transform([fertilizer_encoded])[0]
 
             tips = generate_random_tips()
-
+            print(fertilizer_name)
             return JsonResponse({
                 'fertilizer': fertilizer_name,
                 'recommendation': tips
