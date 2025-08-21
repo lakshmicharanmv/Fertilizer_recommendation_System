@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
 import axios from 'axios';
-import RecommendationModal from './RecommendationModal';
+import { useState } from 'react';
 import './Home.css';
+import RecommendationModal from './RecommendationModal';
 
 function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -101,7 +101,7 @@ function Home() {
         };
 
         const response = await axios.post(
-          '/api/predict-fertilizer/',
+          'https://fertilizer-recommendation-system-48.vercel.app/api/predict-fertilizer/',
           apiData
         );
         if (response.data && response.data.fertilizer) {
